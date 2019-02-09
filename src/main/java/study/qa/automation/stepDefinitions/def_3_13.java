@@ -3,6 +3,7 @@ package study.qa.automation.stepDefinitions;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -46,7 +47,8 @@ public class def_3_13 {
     public void errorMessageDisplayed(String errorMessage) throws Throwable {
         Thread.sleep(1000);
         String st = getDriver().findElements(By.cssSelector(".cdk-overlay-pane > snack-bar-container > simple-snack-bar")).get(0).getText();
-        assertThat(st.contains(errorMessage));
+        Assert.assertTrue(st.equals(errorMessage));
+        Thread.sleep(1000);
     }
 
 
