@@ -1,9 +1,9 @@
 package study.qa.automation.stepDefinitions;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.openqa.selenium.By;
+
 import static study.qa.automation.utils.TestContext.getDriver;
 
 public class def_3_6 {
@@ -43,6 +43,7 @@ public class def_3_6 {
         getDriver().findElement(By.xpath("//*[contains(text(), 'Q3:')]/../../..//*[@placeholder='Question *']")).sendKeys(text);
         Thread.sleep(250);
     }
+
     //------------------------------------------------------------------
     @And("^Select Single-Choice Type of questionFour$")
     public void selectSingleChoiceTypeOfQuestionOne() throws InterruptedException {
@@ -118,7 +119,7 @@ public class def_3_6 {
         getDriver().findElement(By.xpath("//*[contains(text(), 'Q6:')]/../../..//*[@placeholder='Option 1*']/../../../../..//mat-radio-button")).click();
         Thread.sleep(250);
     }
-    //---------------------------------------------------------------------------
+
     @And("^Select Multiple-Choice Type of questionSeven$")
     public void selectMultipleChoiceTypeOfQuestionSeven() throws InterruptedException {
         getDriver().findElement(By.xpath("//*[contains(text(), 'Q7:')]/../../..//div[contains(text(), 'Multiple-Choice')]")).click();
@@ -213,20 +214,7 @@ public class def_3_6 {
         Thread.sleep(2000);
         getDriver().findElement(By.xpath("//h5[contains(text(),'Quizzes')]")).click();
         Thread.sleep(2000);
-
-//        getDriver().findElement(By.xpath("//h5[contains(text(),'Quizzes')]")).click();
-//        Thread.sleep(2000);
-//        int quizzes = getDriver().findElements(By.xpath("//*[contains(text(), 'Testing Ig')]")).size();
-//        for (int i = 0; i < quizzes; i++) {
-//            getDriver().findElement(By.xpath("//*[contains(text(), 'Testing Ig')]")).click();
-//            Thread.sleep(1000);
-//            getDriver().findElement(By.xpath("//*[contains(text(), 'Testing Ig')]/../../..//*[contains(text(), 'Delete')]")).click();
-//            Thread.sleep(1000);
-//            getDriver().findElement(By.xpath("//*[contains(text(), 'Confirmation')]/../../..//*[contains(text(), 'Delete')]")).click();
-//            Thread.sleep(5000);
-//        }
-//
-   }
+    }
 }
 
 

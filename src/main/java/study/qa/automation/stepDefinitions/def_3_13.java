@@ -7,8 +7,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static study.qa.automation.utils.TestContext.*;
+import static study.qa.automation.utils.TestContext.executeJavascript;
+import static study.qa.automation.utils.TestContext.getDriver;
 
 public class def_3_13 {
     @When("^Navigate to login page$")
@@ -47,7 +47,7 @@ public class def_3_13 {
     public void errorMessageDisplayed(String errorMessage) throws Throwable {
         Thread.sleep(1000);
         String st = getDriver().findElements(By.cssSelector(".cdk-overlay-pane > snack-bar-container > simple-snack-bar")).get(0).getText();
-        Assert.assertTrue(st.equals(errorMessage));
+        Assert.assertTrue(st.contains(errorMessage));
         Thread.sleep(1000);
     }
 
@@ -56,7 +56,7 @@ public class def_3_13 {
     public void elementIsPresent(String userName) throws Throwable {
         Thread.sleep(1000);
         String st = getDriver().findElements(By.cssSelector(("body > ac-root > mat-sidenav-container > mat-sidenav > ac-side-menu > mat-list > header > div > h3"))).get(0).getText();
-        assertThat(st.contains(userName));
+        Assert.assertTrue(st.contains(userName));
     }
 
     @And("^Click on Quizzes on left navigational panel$")
@@ -175,7 +175,7 @@ public class def_3_13 {
     public void verifyThatQuizWasAssign(String myquiz) throws Throwable {
         WebElement quiz = getDriver().findElement(By.xpath("//h4[contains(text(), 'My Assignment')]/..//*[contains(text(), 'Assignment Sofia')]"));
         String textFromQuiz = quiz.getText();
-        assertThat(textFromQuiz.contains(myquiz)).isTrue();
+        Assert.assertTrue(textFromQuiz.contains(myquiz));
         String name = getDriver().findElement(By.xpath("//div[@class='info']//h3")).getText();
         if (textFromQuiz.contains(myquiz)) {
             System.out.println(name + " get assignment. ");
