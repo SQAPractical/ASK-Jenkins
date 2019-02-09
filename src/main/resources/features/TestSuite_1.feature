@@ -13,5 +13,5 @@ Feature: Feature 1
     When Type email "tanyasptest+6@gmail.com"
     Then Type Password "12345"
     And Push Sign In button
-#    And Error message displayed: "Authentication failed."
-    And Error message displayed: "ERROR MESSAGE"
+    And Error message displayed: "Authentication failed."
+    # And Error message displayed: "ERROR MESSAGE"
