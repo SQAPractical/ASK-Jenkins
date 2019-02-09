@@ -7,7 +7,7 @@ Feature: Feature 1
     Then Type Password "winter2018"
     And Push Sign In button
 
-  @EndToEnd_1 @EndToEnd_2 @EndToEnd_3
+  @EndToEnd_2 @EndToEnd_3
   Scenario: Log In. Negative
     Given  Navigate to login page
     When Type email "tanyasptest+6@gmail.com"

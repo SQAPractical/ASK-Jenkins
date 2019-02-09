@@ -8,7 +8,7 @@ Feature: Feature 2
     And Push Sign In button
     And Make sure user name is "Donald Duck"
 
-  @EndToEnd_2 @EndToEnd_3
+  @EndToEnd_3
   Scenario: Log In. Positive
     Given  Navigate to login page
     When Type email "tanyasptest+6@gmail.com"
