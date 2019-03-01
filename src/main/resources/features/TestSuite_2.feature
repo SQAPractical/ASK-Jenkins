@@ -12,6 +12,6 @@ Feature: Feature 2
   Scenario: Log In. Positive
     Given  Navigate to login page
     When Type email "skirro7k@muhdioso8abts2yy.gq"
-    Then Type Password "12345"
+    Then Type Password "123456"
     And Push Sign In button
     And Error message displayed: "Authentication failed."
