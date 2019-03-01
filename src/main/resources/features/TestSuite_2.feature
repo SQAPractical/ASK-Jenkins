@@ -8,7 +8,7 @@ Feature: Feature 2
     And Push Sign In button
     And Make sure user name is "Diana Brown"
 
-  @EndToEnd_3
+  @EndToEnd_3 @test
   Scenario: Log In. Positive
     Given  Navigate to login page
     When Type email "skirro7k@muhdioso8abts2yy.gq"
