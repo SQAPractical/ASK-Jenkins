@@ -1,6 +1,6 @@
 Feature: Feature 2
 
-  @EndToEnd_2
+  @EndToEnd_2 @test
   Scenario: Teacher creates Quiz and assign it for 5 individual students
     When  Navigate to login page
     And Type email "skirro7k@muhdioso8abts2yy.gq"
@@ -8,7 +8,7 @@ Feature: Feature 2
     And Push Sign In button
     And Make sure user name is "Diana Brown"
 
-  @EndToEnd_3 @test
+  @EndToEnd_3
   Scenario: Log In. Positive
     Given  Navigate to login page
     When Type email "skirro7k@muhdioso8abts2yy.gq"
