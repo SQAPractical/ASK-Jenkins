@@ -1,6 +1,6 @@
 Feature: Feature 1
 
-  @EndToEnd_2
+  @EndToEnd_1
   Scenario: Log In. Positive
     Given Navigate to login page
     When Type email "skirro7k@muhdioso8abts2yy.gq"
