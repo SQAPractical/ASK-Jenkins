@@ -7,7 +7,7 @@ Feature: Feature 1
     Then Type Password "12345"
     And Push Sign In button
 
-  @EndToEnd_1 @EndToEnd_3
+  @EndToEnd_3
   Scenario: Log In. Negative
     Given  Navigate to login page
     When Type email "skirro7k@muhdioso8abts2yy.gq"
