@@ -1,7 +1,7 @@
-Feature: Feature 1
+Feature: first
 
   @Regression
-  Scenario: Log In. Positive
+  Scenario: Log In - valid email
     Given Navigate to login page
     When Type email "qa.sofi@gmail.com"
     Then Type Password "12345"
@@ -9,7 +9,7 @@ Feature: Feature 1
     And Make sure user name is "Sofia"
 
   @Regression
-  Scenario: Log In. Negative
+  Scenario: Log In - invalid password
     Given  Navigate to login page
     When Type email "skirro7k@muhdioso8abts2yy.gq"
     Then Type Password "123456"
