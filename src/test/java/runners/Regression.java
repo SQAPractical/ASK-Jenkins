@@ -12,5 +12,5 @@ import org.junit.runner.RunWith;
         tags = {"@Regression"}
 )
 
-public class EndToEnd_1 {
+public class Regression {
 }
