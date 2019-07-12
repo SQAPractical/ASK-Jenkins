@@ -1,9 +1,8 @@
 package study.qa.automation.utils;
-
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -15,7 +14,11 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.yaml.snakeyaml.Yaml;
+
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -24,8 +27,16 @@ public class TestContext {
 
     private static WebDriver driver;
 
+    public static HashMap<String, String> createUser() throws FileNotFoundException {
+        String path = System.getProperty("user.dir") + "/src/main/resources/testData/3.1_createUser.yml";
+        File file = new File(path);
+        FileInputStream stream = new FileInputStream(file);
+        Yaml yaml = new Yaml();
+        return yaml.load(stream);
+    }
+
     public static void initialize() {
-        setDriver("chrome");
+        setDriver("chrome", true);
     }
 
     public static void close() {
@@ -36,17 +47,18 @@ public class TestContext {
         return driver;
     }
 
-    public static void setDriver(String browser) {
-        driver = initializeDriver(browser);
+    public static void setDriver(String browser, boolean isHeadless) {
+        driver = initializeDriver(browser, isHeadless);
     }
 
-    private static WebDriver initializeDriver(String browser) {
+    private static WebDriver initializeDriver(String browser, boolean isHeadless) {
         try {
             WebDriver driver;
             String osName = System.getProperty("os.name");
             switch (browser) {
                 case "chrome":
                     String chromeDriverName = "chromedriver.exe";
+
                     if (osName != null && osName.contains("Mac")) {
                         chromeDriverName = "chromedriver";
                     }
@@ -60,8 +72,25 @@ public class TestContext {
                     chromePreferences.put("password_manager_enabled", false);
                     chromePreferences.put("safebrowsing.enabled", "true");
                     ChromeOptions chromeOptions = new ChromeOptions();
+
+                    //#########
+//                    chromeOptions.addArguments("enable-automation");
+//                    chromeOptions.addArguments("--headless");
+//                    chromeOptions.addArguments("--window-size=1920,1080");
+//                    chromeOptions.addArguments("--no-sandbox");
+//                    chromeOptions.addArguments("--disable-extensions");
+//                    chromeOptions.addArguments("--dns-prefetch-disable");
+//                    chromeOptions.addArguments("--disable-gpu");
+//                    chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+//#########
+
                     chromeOptions.addArguments("--start-maximized");
                     chromeOptions.setExperimentalOption("prefs", chromePreferences);
+                    if (isHeadless) {
+                        chromeOptions.setHeadless(true);
+                        chromeOptions.addArguments("--window-size=1920,1080");
+                        chromeOptions.addArguments("--disable-gpu");
+                    }
                     driver = new ChromeDriver(chromeOptions);
                     driver.manage().window().setSize(new Dimension(1044,784));
                     break;
@@ -112,11 +141,6 @@ public class TestContext {
         }
     }
 
-    public static void executeJavascript(String scriptToExecute) {
-        JavascriptExecutor js = (JavascriptExecutor) getDriver();
-        js.executeScript(scriptToExecute);
-    }
-
     private static void closeDriver() {
         driver.quit();
     }
@@ -126,6 +150,10 @@ public class TestContext {
     }
     private static String getDownloadsPath() {
         return System.getProperty("user.dir") + String.format("%1$ssrc%1$smain%1$sresources%1$sdownloads%1$s", File.separator);
+    }
+    public static void executeJavascript(String scriptToExecute) {
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript(scriptToExecute);
     }
 
 }
