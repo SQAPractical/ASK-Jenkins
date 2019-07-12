@@ -45,11 +45,18 @@ public class def_3_13 {
 
     @And("^Error message displayed: \"([^\"]*)\"$")
     public void errorMessageDisplayed(String errorMessage) throws Throwable {
+//        Thread.sleep(2000);
+//        String st = getDriver().findElements(By.cssSelector(".cdk-overlay-pane > snack-bar-container > simple-snack-bar")).get(0).getText();
+//        Assert.assertTrue(st.contains(errorMessage));
+//        Thread.sleep(1000);
+
         Thread.sleep(1000);
-        String st = getDriver().findElements(By.cssSelector(".cdk-overlay-pane > snack-bar-container > simple-snack-bar")).get(0).getText();
-        Assert.assertTrue(st.contains(errorMessage));
+        String message = getDriver().findElement(By.xpath("//simple-snack-bar[contains(text(),'Authentication failed')]")).getText();
+        Assert.assertTrue(message.contains(errorMessage));
         Thread.sleep(1000);
     }
+
+
 
 
     @And("^Make sure user name is \"([^\"]*)\"$")
