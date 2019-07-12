@@ -117,6 +117,7 @@ public class def_3_13 {
 
     @And("^Push Save button$")
     public void pushSaveButton() throws Throwable {
+        Thread.sleep(1000);
         getDriver().findElement(By.xpath("//span[contains(text(), 'Save')]")).click();
         Thread.sleep(1000);
     }
