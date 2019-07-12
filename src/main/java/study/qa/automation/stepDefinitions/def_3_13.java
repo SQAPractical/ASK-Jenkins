@@ -41,6 +41,7 @@ public class def_3_13 {
         Thread.sleep(1000);
         String st = "Array.from(document.querySelectorAll('.mat-button-wrapper'))[0].click()";
         executeJavascript(st);
+        Thread.sleep(2000);
     }
 
     @And("^Error message displayed: \"([^\"]*)\"$")
