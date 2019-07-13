@@ -44,7 +44,7 @@ public class TestContext {
     }
 
     public static void initialize() {
-        setDriver("chrome", false);
+        setDriver("chrome", true);
 //        setDriver("chrome");
     }
 
