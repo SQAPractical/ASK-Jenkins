@@ -1,6 +1,6 @@
 Feature: second
 
-  @Regression
+
   Scenario: Log In valid email
     Given Navigate to login page
     When Type email "qa.sofi@gmail.com"
@@ -17,7 +17,7 @@ Feature: second
     And Error message displayed: "Authentication failed."
     #And Error message displayed: "ERROR MESSAGE"
 
-  @Regression
+
   Scenario: Quiz
     Given  Navigate to login page
     When Type email "qa.sofi@gmail.com"
