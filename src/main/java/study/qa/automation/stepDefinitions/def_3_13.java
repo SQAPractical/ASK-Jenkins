@@ -13,15 +13,15 @@ import static study.qa.automation.utils.TestContext.getDriver;
 public class def_3_13 {
     @When("^Navigate to login page$")
     public void navigateToLoginPage() {
-        getDriver().get("http://local.school.portnov.com:4520/#/login");
+        getDriver().get("192.168.2.251");
     }
 
     @And("^Type email \"([^\"]*)\"$")
     public void typeEmail(String email) throws Throwable {
         Thread.sleep(2000);
-        String st = "Array.from(document.querySelectorAll('#mat-input-0'))[0].click()";
-        executeJavascript(st);
-        Thread.sleep(1000);
+//        String st = "Array.from(document.querySelectorAll('#mat-input-0'))[0].click()";
+//        executeJavascript(st);
+//        Thread.sleep(1000);
         getDriver().findElement(By.xpath("//input[@placeholder='Email *']")).sendKeys(email);
         Thread.sleep(1000);
     }
