@@ -216,5 +216,3 @@ public class def_3_6 {
         Thread.sleep(2000);
     }
 }
-
-

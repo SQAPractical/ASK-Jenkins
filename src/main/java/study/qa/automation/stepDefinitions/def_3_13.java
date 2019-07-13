@@ -70,7 +70,7 @@ public class def_3_13 {
     @And("^Click on Quizzes on left navigational panel$")
     public void clickOnQuizzesOnLeftNavigationalPanel() throws Throwable {
         getDriver().findElement(By.xpath("//h5[contains(text(),'Quizzes')]")).click();
-        Thread.sleep(2000);                 //2000 milliseconds is two second.
+        Thread.sleep(2000);
     }
 
     @And("^Push Create new Quiz button$")
