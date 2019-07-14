@@ -14,5 +14,5 @@ Feature: first
     When Type email "skirro7k@muhdioso8abts2yy.gq"
     Then Type Password "123456"
     And Push Sign In button
-#    And Error message displayed: "Authentication failed"
-    And Error message displayed: "ERROR MESSAGE"
+    And Error message displayed: "Authentication failed"
+#    And Error message displayed: "ERROR MESSAGE"
