@@ -6,7 +6,7 @@ Feature: first
     When Type email "qa.sofi@gmail.com"
     Then Type Password "12345"
     And Push Sign In button
-    And Make sure user name is "Sofia"
+    And Make sure user name is "Ivan"
 
   @Regression
   Scenario: Log In - invalid password

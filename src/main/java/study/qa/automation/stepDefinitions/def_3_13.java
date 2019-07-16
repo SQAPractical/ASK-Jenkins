@@ -13,8 +13,8 @@ import static study.qa.automation.utils.TestContext.getDriver;
 public class def_3_13 {
     @When("^Navigate to login page$")
     public void navigateToLoginPage() {
-//        getDriver().get("http://192.168.2.251");
-        getDriver().get("http://local.school.portnov.com:4520/#/login");
+        getDriver().get("http://192.168.2.251");
+//        getDriver().get("http://local.school.portnov.com:4520/#/login");
     }
 
     @And("^Type email \"([^\"]*)\"$")
